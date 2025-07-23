@@ -1,0 +1,47 @@
+<script>
+    class person  {
+        constructor(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        write () {
+            console.log(`I am ${this.gender === 'Male' ? 'Mr' : 'Mrs'} ${this.name}. I am ${this.age} years old.`);
+            
+        }
+    };
+    const person1 = new person('John', 30, 'Male');
+    const person2 = new person('Jane', 25, 'Female');
+    person1.write();
+    person2.write();
+
+    class student extends person {
+        constructor(name, age, gender, classname) {
+            super(name, age, gender);
+            this.classname = classname;
+        }
+        studentWrite() {
+            console.log(`My name is ${this.name}. I am a student of class ${this.classname}.`);
+        }
+    }
+    const student1 = new student('Alice', 11, 'Female', '5th Grade');
+    const student2 = new student('Bob', 12, 'Male', '6th Grade');
+    student1.studentWrite();
+    student2.studentWrite();
+
+    class teacher extends person {
+        constructor(name, age, gender, subject) {
+            super(name, age, gender);
+            this.subject = subject;
+    }
+    teacherWrite(){
+        console.log(`I am ${this.gender === 'Male' ? 'Mr' : 'Mrs'} ${this.name}. I teach ${this.subject}.`);
+        
+    }
+    }
+    const teacher1 = new teacher('Olayiwola', 33, 'Male', 'Mathematics');
+    const teacher2 = new teacher('Akeemat', 29, 'Female', 'English');
+
+    teacher1.teacherWrite();
+    teacher2.teacherWrite();
+</script>
