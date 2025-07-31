@@ -1,0 +1,45 @@
+<script>
+
+    function fetchUserName(userName, callback) {
+  setTimeout(() => {
+    const userName = "Archimedes"; 
+    callback(userName);
+  }, 3000); 
+}
+fetchUserName('ade', function (user) {
+    console.log(`My name is ${user}`);
+});
+
+    setTimeout(function (params) {
+        const user = {name: 'Akeem', age : 2}
+    console.log(`My name is ${user['name']}`)
+}, 3000)
+
+
+async function UsersWithAsync() {
+
+    const user = new Promise((resolve, reject) => {
+        setTimeout(() => {
+        const user = {name: 'Akeem', age : 2}
+            resolve(user)
+        }, 3500)
+    })
+
+    const userCall = await user
+    console.log(userCall);
+
+}
+UsersWithAsync()
+
+
+async function userWithPromise() {
+  const result = await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Archimedes");
+    }, 3000);
+  });
+  console.log(`My name is ${result}`);
+}
+
+userWithPromise()
+</script>
