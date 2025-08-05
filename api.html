@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Users List</h1>
+    <div id="user-list"></div>  
+    <script>
+        let userList = document.getElementById("user-list")
+
+const API_URL = "https://jsonplaceholder.typicode.com/users"
+
+fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(user => {
+            let userDiv = document.createElement("div")
+            userDiv.classList.add("user")
+            userDiv.innerHTML = `
+            <h3>${user.name}</h3>
+            <p>${user.email}</p>
+            `
+            userList.appendChild(userDiv)
+        }
+        );
+    })
+
+    .catch(error => {
+        console.log("Error:", error)
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>All Products</h3>
+    <div id="err">Catch Error Shows here When there is no Internet Network</div>
+    <div id="products"></div>
+
+    <script>
+        let url = 'https://fakestoreapi.com/products/'
+        fetch(url)
+        .then(res=>res.json())
+        .then(data=>{
+            data.forEach(element =>{ products.innerHTML += `
+                <div>
+                    <img src="${element.image}" alt="">
+                    <h1>${element.title}</h1>
+                    <p>${element.description}</p>
+                </div>
+                `}
+            );
+        })
+         .catch(error => {
+            err.innerHTML = "<h2>Error Message: " + error.message+'</h2>';
+            console.error("Error:", error);
+        console.log("Error:", error)
+    })
+    </script>
+
+</body>
+</html>
